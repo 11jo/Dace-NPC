@@ -32,7 +32,7 @@ ALWAYS
 
 	LAF autotra_workaround END
 
-	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+	ACTION_IF NOT GAME_IS ~bg2ee eet~ BEGIN
 //  ACTION_DEFINE_ARRAY t#_noconvert BEGIN END
 
 		ACTION_DEFINE_ARRAY t#_reload BEGIN setup END
@@ -40,23 +40,18 @@ ALWAYS
 			LAF HANDLE_CHARSETS
 				INT_VAR
 				infer_charsets = 1
+				from_utf8         = 1
 				STR_VAR
 				tra_path = EVAL ~weidu_external/dace/Languages/autotra~
-				out_path = EVAL ~weidu_external/dace/Languages/autotra/UTF8~
+				out_path = EVAL ~weidu_external/dace/Languages/autotra~
 				iconv_path = ~dace/Languages/autotra/iconv~
 				// noconvert_array = t#_noconvert
 				reload_array = t#_reload
 			END
-
-	// UTF8 only
-	COPY ~weidu_external/dace/Languages/autotra/UTF8/%LANGUAGE%~			~weidu_external/dace/Languages/autotra/%LANGUAGE%~
 	END
 
-    ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
       OUTER_TEXT_SPRINT tra_location ~weidu_external/dace/Languages/autotra~
-    END ELSE BEGIN
-      OUTER_TEXT_SPRINT tra_location ~dace/languages~
-    END
+
 
 END
 

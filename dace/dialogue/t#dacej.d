@@ -8,10 +8,10 @@ BEGIN T#DACEJ
 // ---------------------------------------------
 
 // Circus--Get riddle right--(..rewards those with a quick and agile mind)(Think this is Genie1.dlg)
-INTERJECT_COPY_TRANS GENIE1 7 T#DRIDDLE
+INTERJECT_COPY_TRANS KGENIE1 7 T#DRIDDLE
 == T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @0
-== GENIE1 @1
+== KGENIE1 @1
 END
 
 
